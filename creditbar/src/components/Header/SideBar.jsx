@@ -34,18 +34,17 @@ export default function SideBar() {
 
   const sidebar = [
     {
-      //['Главная', 'Банки', 'Заявки']
         name: "Главная",
-        path: "/main",
-        icon: <HomeIcon fontSize="large" />
+        path: "/",
+        icon: <HomeIcon className='burger__svg' fontSize="large" />
     }, {
         name: "Банки",
         path: "/banks",
-        icon: <BankIcon fontSize="large" />
+        icon: <BankIcon className='burger__svg' fontSize="large" />
     }, {
         name: "Заявки",
         path: "/applications",
-        icon: <AssignmentIcon fontSize="large" />
+        icon: <AssignmentIcon className='burger__svg' fontSize="large" />
     },
 ]
 
@@ -58,7 +57,7 @@ export default function SideBar() {
     >
       <List className='burger__li'>
         {sidebar.map((text, index) => (
-          <Link to={text.path} >
+          <Link className='link' to={text.path} >
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -74,15 +73,16 @@ export default function SideBar() {
       </List>
       <List className='burger__li'>
         {['Профиль'].map((text, index) => (
-          <Link to="/profil">
+          <Link className='link' to="/profil">
           <ListItem  key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <AccountBoxIcon fontSize="large" />
+                <AccountBoxIcon className='burger__svg' fontSize="large" />
               </ListItemIcon>
               <ListItemText  primary={text} />
             </ListItemButton>
           </ListItem>
+          <Divider />
           </Link>
         ))}
       </List>
@@ -100,7 +100,7 @@ export default function SideBar() {
             onClose={toggleDrawer(anchor, false)}
             onOpen={toggleDrawer(anchor, true)}
           >
-            {list(anchor)}
+            <div className='burger'>{list(anchor)}</div>
           </SwipeableDrawer>
         </React.Fragment>
       ))}

@@ -11,20 +11,20 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box  className="header" sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar  className="header" >
+        <Toolbar  className="header__cnt" >
           <SideBar />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to='/main'>
+            <Link className='link' to='/'>
               CreditBar
             </Link>
           </Typography>
-          <Link to="login">
-            <Button color="inherit"> login</Button>
+          <Link to="login" className='link'>
+            <Button color="inherit">Register</Button>
           </Link>
-          <Link to="signin">
-            <Button   color="inherit">  Sign in</Button>
+          <Link to="signin" className='link'>
+            <Button   color="inherit">Login</Button>
           </Link>
         </Toolbar>
       </AppBar>
