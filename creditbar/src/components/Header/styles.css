@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
 .main__header {
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,9 +17,9 @@
 
 .header__cnt  {
   background-color: #282828;
-  -webkit-box-shadow: black 0 2px 10px;
   color: #fff;
   text-align: center;
+  border-bottom: 1px solid black;
 }
 
 .burger {
@@ -89,4 +91,73 @@ label {
   color: #fff;
   width: 220px;
   white-space: nowrap;
+}
+
+.applications {
+  padding-right: 20px;
+  padding-left: 20px;
+  justify-content: center;
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.list-group-flush>.list-group-item {
+  background-color: #212529;
+  color: #fff;
+}
+
+.mb-4 {
+  border: none ;
+  background-color: #292a2d !important;
+  margin-bottom: 4px !important;
+}
+
+.adaptiv__block {
+  margin-top: 40px !important;
+  display: flex;
+  align-items: center;
+  row-gap: 10px;
+  color: #fff;
+}
+
+.noactiv__btn {
+  color: #1976d2 !important;
+  background-color: rgb(91, 101, 154) !important;
+}
+
+.user__prof {
+  background-color: #676767;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-image: url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp);
+  background-size: cover;
+}
+
+.profil__btn {
+  display: inline-block;
+  color: #fff;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  border: none;
+  background-color:rgb(57, 57, 57);
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.profil__btn-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-body {
+  flex-direction: column;
+}
+
+tr > td:nth-child(1) {
+  padding-left: 10px;
+  width: 100px;
 }

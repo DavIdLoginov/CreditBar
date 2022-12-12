@@ -38,7 +38,7 @@ export default function SideBar() {
         path: "/",
         icon: <HomeIcon className='burger__svg' fontSize="large" />
     }, {
-        name: "Банки",
+        name: "",
         path: "/banks",
         icon: <BankIcon className='burger__svg' fontSize="large" />
     }, {
@@ -57,8 +57,8 @@ export default function SideBar() {
     >
       <List className='burger__li'>
         {sidebar.map((text, index) => (
-          <Link className='link' to={text.path} >
-          <ListItem key={text} disablePadding>
+          <Link  key={text}  className='link' to={text.path} >
+          <ListItem  disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <>{text.icon}</>
@@ -71,10 +71,10 @@ export default function SideBar() {
           </Link> 
         ))}
       </List>
-      <List className='burger__li'>
+      {/* <List className='burger__li'>
         {['Профиль'].map((text, index) => (
-          <Link className='link' to="/profil">
-          <ListItem  key={text} disablePadding>
+          <Link  key={text}  className='link' to="/profil">
+          <ListItem   disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <AccountBoxIcon className='burger__svg' fontSize="large" />
@@ -85,7 +85,7 @@ export default function SideBar() {
           <Divider />
           </Link>
         ))}
-      </List>
+      </List> */}
     </Box>
   );
 
