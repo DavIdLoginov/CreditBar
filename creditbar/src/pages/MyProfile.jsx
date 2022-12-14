@@ -25,7 +25,7 @@ const style = {
   p: 4,
 };
 
-const ProfilPage = () => {
+const MyProfile = () => {
   const { id } = useParams();
   const [open, setOpen] = React.useState(false);
   const [user, setUser] = useState({});
@@ -33,7 +33,12 @@ const ProfilPage = () => {
   const handleClose = () => setOpen(false);
 
   const getUserInfo = async () => {
-    const { data } = await axios.get('http://lala34.pythonanywhere.com/info/' + id);
+    const { auth_token } = JSON.parse(localStorage.getItem('tokenAuth'));
+    const { data } = await axios.get('http://lala34.pythonanywhere.com/profile', {
+      headers: {
+        Authorization: `Token ${auth_token}`
+      }
+    });
     setUser(data)
   }
 
@@ -55,8 +60,8 @@ const ProfilPage = () => {
                   className="rounded-circle"
                   style={{ width: '150px' }}
                   fluid />
-                <p className="text-muted mb-1">{user.username}, {user.age} years</p>
-                <p className="text-muted mb-4">{user.country}, {user.city} </p>
+                <p className="text-muted mb-1">{user?.username}, {user?.info_data?.age} years</p>
+                <p className="text-muted mb-4">{user?.info_data?.country}, {user?.info_data?.city} </p>
               </MDBCardBody>
             </MDBCard>
 
@@ -69,7 +74,7 @@ const ProfilPage = () => {
                     <MDBCardText>UserName</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.username}</MDBCardText>
+                    <MDBCardText className="text-muted">{user?.username}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -78,7 +83,7 @@ const ProfilPage = () => {
                     <MDBCardText>Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.email}</MDBCardText>
+                    <MDBCardText className="text-muted">{user?.email}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -87,7 +92,7 @@ const ProfilPage = () => {
                     <MDBCardText>  Language</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.language}</MDBCardText>
+                    <MDBCardText className="text-muted">{user?.info_data?.language}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -96,7 +101,7 @@ const ProfilPage = () => {
                     <MDBCardText>Country</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.country}</MDBCardText>
+                    <MDBCardText className="text-muted">{user?.info_data?.country}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -105,7 +110,7 @@ const ProfilPage = () => {
                     <MDBCardText>City</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.city}</MDBCardText>
+                    <MDBCardText className="text-muted">{user?.info_data?.city}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
               </MDBCardBody>
@@ -129,4 +134,4 @@ const ProfilPage = () => {
   );
 };
 
-export default ProfilPage;
+export default MyProfile;
