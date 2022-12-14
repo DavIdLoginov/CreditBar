@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+ul:not(:last-child) {
+  margin-bottom: 0 !important;
+}
+
+a:hover {
+  color: #fff;
+}
