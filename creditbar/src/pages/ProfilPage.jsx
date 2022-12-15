@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   MDBCol,
   MDBContainer,
@@ -9,38 +9,21 @@ import {
   MDBCardImage,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
-import Modal from '@mui/material/Modal';
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
-
-const user =   {
-  email: "user@example.com",
-  username: "Viktor",
-  user: 2,
-  country: "Kergistan",
-  city: "Bishkek",
-  language: "Russion",
-  age: 20,
-  gender: "Female"
-}
-
-axios.get('http://lala34.pythonanywhere.com/profile/').then(res => console.log(res))
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 const ProfilPage = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { id } = useParams();
+  const [user, setUser] = useState({});
+
+  const getUserInfo = async () => {
+    const { data } = await axios.get('http://lala34.pythonanywhere.com/info/' + id);
+    setUser(data)
+  }
+
+  useEffect(() => {
+    getUserInfo();
+  }, [])
   return (
     <div>
       <section style={{ backgroundColor: '#292a2' }}>
@@ -114,18 +97,7 @@ const ProfilPage = () => {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      <div className='profil__btn-cont'>
-        <button onClick={handleOpen} className='profil__btn'> Добавить Заявку</button>
-      </div>
     </section>
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      >
-      <div></div>
-    </Modal>
     </div>
   );
 };

@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import BankIcon from '@mui/icons-material/AccountBalance';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 export default function SideBar() {
   const [state, setState] = React.useState({
@@ -38,7 +37,7 @@ export default function SideBar() {
         path: "/",
         icon: <HomeIcon className='burger__svg' fontSize="large" />
     }, {
-        name: "",
+        name: "Users",
         path: "/banks",
         icon: <BankIcon className='burger__svg' fontSize="large" />
     }, {

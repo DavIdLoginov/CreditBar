@@ -8,7 +8,8 @@ import MainPage from './pages/MainPage';
 import ApplicationsPage from './pages/ApplicationsPage';
 import ProfilPage from './pages/ProfilPage';
 import { useState } from 'react';
-
+import MyProfile from './pages/MyProfile';
+import Users from './pages/Users';
 
 function App() {
 
@@ -24,11 +25,12 @@ function App() {
         <Header />
         <Routes>
           <Route path='/login' element={<RegisterPage />} /> 
-          <Route path='/profil' element={<ProfilPage />}/>
+          <Route path='/profil' element={<MyProfile />}/>
           <Route path='/signin' element={<LoginPage />}/> 
           <Route path='/' element={<MainPage />}/>
-          <Route path='/banks' element={<h1>banks</h1>}/> 
+          <Route path='/banks' element={<Users />}/> 
           <Route path='/applications' element={<ApplicationsPage />}/>  
+          <Route path='/user/:id' element={<ProfilPage />} />
         </Routes>
       </BrowserRouter>
 

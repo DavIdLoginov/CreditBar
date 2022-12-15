@@ -18,9 +18,14 @@ const LoginPage = () => {
   const loginUser = (e, userInfo) => {
     e.preventDefault()
     dispatch(login(userInfo))
-    const ok = localStorage.getItem('tokenAuth')
+    const ok = JSON.parse(localStorage.getItem('tokenAuth'))
     if(ok){
-      // axios.get(`http://lala34.pythonanywhere.com/profile/token=${ok.auth_token}`)
+      console.log(ok);
+      axios.get(`http://lala34.pythonanywhere.com/profile`, {
+        headers: {
+          Authorization: `Bearer ${ok.auth_token}`
+        }
+      })
       navigate('/profil');
     }
   }
