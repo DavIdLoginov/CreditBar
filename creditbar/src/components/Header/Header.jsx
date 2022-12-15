@@ -33,7 +33,10 @@ export default function Header() {
         <Box  className="header" sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar  className="header__cnt" >
+          { token?
             <SideBar />
+            : <></>
+            }
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <Link className='link' to='/'>
                 CreditBar

@@ -9,28 +9,12 @@ import {
   MDBCardImage,
 } from 'mdb-react-ui-kit';
 import axios from 'axios';
-import Modal from '@mui/material/Modal';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
 const ProfilPage = () => {
   const { id } = useParams();
-  const [open, setOpen] = React.useState(false);
   const [user, setUser] = useState({});
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const getUserInfo = async () => {
     const { data } = await axios.get('http://lala34.pythonanywhere.com/info/' + id);
@@ -113,18 +97,7 @@ const ProfilPage = () => {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      <div className='profil__btn-cont'>
-        <button onClick={handleOpen} className='profil__btn'> Добавить Заявку</button>
-      </div>
     </section>
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      >
-      <div></div>
-    </Modal>
     </div>
   );
 };
