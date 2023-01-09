@@ -57,7 +57,7 @@ const MyProfile = () => {
   }
 
   const postPost = async (props) => {
-    await axios.put(`http://lala34.pythonanywhere.com/post/`, props)
+    await axios.post(`http://lala34.pythonanywhere.com/post/`, props)
   }
 
   const getUserInfo = async () => {
@@ -216,7 +216,7 @@ const MyProfile = () => {
                     <div className="form-group mt-3">
                       <label style={{ fontSize: "20px" }}>Название</label>
                       <input
-                        value={inputValues.email}
+
                         onChange={(e) =>
                           setPost({
                             ...post,
